@@ -1,0 +1,80 @@
+Manual page for _printf.
+.SH NAME
+       _printf 
+
+.SH SYNOPSIS
+
+.B #include \"main.h"
+       int _printf(const char *format, ...)
+
+.B #include <stdarg.h>
+       int print_char(va_list c);
+       int print_str(va_list s);
+       int print_dec(va_list d);
+       int print_int(va_list i);
+
+.SH DESCRIPTION
+.B _printf() produce output to a format.
+	The function _printf() writes a formated message to the standard output
+	and returns the number of printed characters.
+	The message can be composed of indicators to pass arguments in that position.
+	The indicator must start with the '%' character.
+	
+	Examples of indicators: %s
+				%c
+				%d
+				%x
+
+.br
+.PP The functions print_c(), print_s(),print_d(),
+       print_i().
+
+.br
+.PP String format
+       The format string is a character string, the format string is given by
+       zero or more directives: characters less %, are copied to the output.
+       conversion specification is introduced by the character %.
+.br
+.PP Specifiers s, c, d, i.
+       Are character that specifies the type of conversion to be applied.
+       
+.TP
+.B	Use examples
+
+.B s
+	Print a string
+
+	_printf("%s", "hola"); -> prints: hola
+				  returns: 4
+
+.TP
+.B d, i
+	Print a decimal number
+
+	_printf("%d", 24); -> prints: 24
+			      returns: 2
+
+.TP
+.B c
+	Prints a character
+
+	_printf("%c", 'M'); -> M with a return of 1
+
+.TP
+.B b
+	Converts a decimal to binary
+
+	_printf("%b", 7); -> prints: 111
+			     returns: 3
+.B o
+	Converts a decimal to octal
+
+	_printf("%o", 10); -> prints: 12
+			      returns: 2
+
+.B x
+	Converts decimal to lower case hex
+
+	_printf("%x", 98); -> prints: 62
+			      returns: 2
+ 
